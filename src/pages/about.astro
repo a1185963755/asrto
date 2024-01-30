@@ -1,18 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+const pageTitle = "关于我";
+const identity = {
+  firstName: "莎拉",
+  country: "加拿大",
+  occupation: "技术撰稿人",
+  hobbies: ["摄影", "观鸟", "棒球"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const happy = true;
+const finished = false;
+const goal = 3;
+const skillColor = "navy";
+const fontWeight = 700;
+const textCase = "uppercase";
 ---
 
-<Layout title="sdads">
+<Layout title={pageTitle}>
   <main>
-    <h1>关于我们</h1>
+    <h1>{pageTitle}</h1>
     <a href="/">首页</a>
-    <a href="/about">关于我们</a>
+    <a href="/about">关于我</a>
     <a href="/blog">博客</a>
-    <p>这里是关于页面，在这里你可以看到关于本站的信息</p>
+    <p>以下是关于我的几个事实：</p>
+    <ul>
+      <li>我的名字是{identity.firstName}.</li>
+      <li>我住在{identity.country}。我的职业是{identity.occupation}。</li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            我的两个习惯：{identity.hobbies[0]}和{identity.hobbies[1]}
+          </li>
+        )
+      }
+    </ul>
+    <p>我的技能是：</p>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+    {happy && <p>我非常乐意学习 Astro！</p>}
+
+    {finished && <p>我完成了这节教程！</p>}
+
+    {goal === 3 ? <p>我的目标是在三天内完成。</p> : <p>我的目标不是 3 天。</p>}
   </main>
 </Layout>
 
-<style>
+<style define:vars={{ skillColor, fontWeight, textCase }}>
   main {
     margin: auto;
     padding: 1rem;
@@ -33,10 +69,12 @@ import Layout from "../layouts/Layout.astro";
   }
   h1 {
     font-size: 4rem;
-    font-weight: 700;
+    font-weight: var(fontWeight);
     line-height: 1;
     text-align: center;
     margin-bottom: 1em;
+    text-transform: var(textCase);
+    color: var(skillColor);
   }
   .text-gradient {
     background-image: var(--accent-gradient);
