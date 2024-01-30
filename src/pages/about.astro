@@ -1,8 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 const pageTitle = "关于我";
 const identity = {
   firstName: "莎拉",
@@ -22,8 +20,6 @@ const textCase = "uppercase";
 
 <Layout title={pageTitle}>
   <main>
-    <h1>{pageTitle}</h1>
-    <Header />
     <p>以下是关于我的几个事实：</p>
     <ul>
       <li>我的名字是{identity.firstName}.</li>
@@ -45,7 +41,7 @@ const textCase = "uppercase";
     {finished && <p>我完成了这节教程！</p>}
 
     {goal === 3 ? <p>我的目标是在三天内完成。</p> : <p>我的目标不是 3 天。</p>}
-    <Footer />
+
     <script>
       import "../scripts/menu.js";
     </script>

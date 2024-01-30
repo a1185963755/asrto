@@ -1,22 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 const pageTitle = "个人博客页";
 ---
 
 <Layout title={pageTitle}>
   <main>
-    <h1>{pageTitle}</h1>
-    <Header />
     <p>这是我的博客页面，从这里开始学习我的astro</p>
     <ul>
       <li><a href="/posts/post-1/">文章1</a></li>
       <li><a href="/posts/post-2/">文章2</a></li>
       <li><a href="/posts/post-3/">文章3</a></li>
     </ul>
-    <Footer />
     <script>
       import "../scripts/menu.js";
     </script>
